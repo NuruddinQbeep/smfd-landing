@@ -117,4 +117,26 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+<script>
+    const otpInputs = document.querySelectorAll('.otp-input');
+
+    otpInputs.forEach((input, index) => {
+        input.addEventListener('input', (e) => {
+            if (input.value.length === 1) {
+                if (index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus(); // Focus the next input
+                }
+            } else if (input.value.length === 0 && index > 0) {
+                otpInputs[index - 1].focus(); // Go back to the previous input if deleted
+            }
+        });
+
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' && index > 0 && input.value.length === 0) {
+                otpInputs[index - 1].focus(); // Focus the previous input on backspace
+            }
+        });
+    });
+</script>
+
 </html>
