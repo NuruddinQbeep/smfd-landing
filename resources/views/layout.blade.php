@@ -15,7 +15,7 @@
 
 <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-light py-2 px-5">
-        <a class="navbar-brand text-white mt-1" href="/home">
+        <a class="navbar-brand text-white mt-1" href="/">
             <img src="{{ asset('img/logo.png') }}" alt="Logo" width="200" height="auto" class="d-inline-block align-top">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -26,12 +26,12 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
                 <li class="nav-item px-1">
-                    @if (request()->is('home'))
+                    @if (request()->is('/'))
                     <a class="nav-link text-white">
                         <button type="button" class="btn text-white">Homepage</button>
                     </a>
                     @else
-                    <a class="nav-link text-white" href="/home">Homepage</a>
+                    <a class="nav-link text-white" href="/">Homepage</a>
                     @endif
                 </li>
 
@@ -47,7 +47,7 @@
 
                 <li class="nav-item px-1">
                     @if (request()->is('reset/password') || request()->is('terminate'))
-                    <a class="nav-link text-white" href="#">Reset Password</a>
+                    <a class="nav-link text-white" href="/reset/password">Reset Password</a>
                     @endif
                 </li>
 
